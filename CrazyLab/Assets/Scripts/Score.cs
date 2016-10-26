@@ -5,22 +5,22 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
 
-	public Text countText;
+	public Text scoreText;
 	public Text winText;
-	public int count;
+	public int score;
 
 	private void Start ()
 	{
-		count = 0;
-		SetCountText ();
+		score = 0;
+		SetScoreText ();
 		winText.text = "";
 
 	}
 
-	public void SetCountText ()
+	public void SetScoreText ()
 	{
-		countText.text = "Count: " + count.ToString ();
-		if (count >= 12) {
+		scoreText.text = "Score: " + score.ToString ();
+		if (score >= 12) {
 			winText.text = "You Win!";
 		}
 	}

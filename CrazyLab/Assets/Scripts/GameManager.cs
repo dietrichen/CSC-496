@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
 
 	void Start ()
 	{
-		currentGameState = GameState.menu;
+		currentGameState = GameState.inGame;// need to configure so this is menu
 	}
 
 	public void StartGame ()
 	{
-		//PlayerController.instance.StartGame ();
+		//PlayerController.instance.StartGame (); 
 		SetGameState (GameState.inGame);
 	}
 
