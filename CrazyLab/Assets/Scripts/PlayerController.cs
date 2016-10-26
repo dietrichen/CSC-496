@@ -25,14 +25,14 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if (GameManager.instance.currentGameState == GameState.inGame) {
+		//if (GameManager.instance.currentGameState == GameState.inGame) {
 			float moveHorizontal = Input.GetAxis ("Horizontal");
 			float moveVertical = Input.GetAxis ("Vertical");
 
 			Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
 			rb.AddForce (movement * speed);
-		}
+		//}
 	}
 
 	void OnTriggerEnter (Collider other)
@@ -59,6 +59,20 @@ public class PlayerController : MonoBehaviour
 		countText.text = "Count: " + count.ToString ();
 		if (count >= 12) {
 			winText.text = "You Win!";
+			Winner ();
+		}
+	}
+	public void Winner()
+	{
+		GameManager.instance.LevelComplete ();
+	}
+
+	void onTriggerEnter (Collider other)
+	{
+		if (other.tag == "Enemy") {
+			Debug.Log ("dead");
+			PlayerController.instance.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePosition;
+		//	Kill ();
 		}
 	}
 }
