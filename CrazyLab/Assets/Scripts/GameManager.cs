@@ -87,13 +87,13 @@ public class GameManager : MonoBehaviour
 		currentGameState = newGameState;
 	}
 
-	void Update ()
+/*	void Update ()
 	{
 		if (Input.GetButtonDown ("s")) {
 			StartGame ();
 		}
 	}
-
+*/
 	public void CollectedCoin ()
 	{
 		collectedCoins++;

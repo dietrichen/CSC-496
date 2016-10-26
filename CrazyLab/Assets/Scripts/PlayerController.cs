@@ -14,8 +14,7 @@ public class PlayerController : MonoBehaviour
 	private int count;
 
 	void Start ()
-	{
-		
+	{		
 		instance = this;
 		rb = GetComponent<Rigidbody> ();
 		count = 0;
@@ -25,14 +24,12 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		//if (GameManager.instance.currentGameState == GameState.inGame) {
-			float moveHorizontal = Input.GetAxis ("Horizontal");
-			float moveVertical = Input.GetAxis ("Vertical");
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveVertical = Input.GetAxis ("Vertical");
 
-			Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
-			rb.AddForce (movement * speed);
-		//}
+		rb.AddForce (movement * speed);
 	}
 
 	void OnTriggerEnter (Collider other)
@@ -44,7 +41,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void Kill()
+	public void Kill ()
 	{
 		GameManager.instance.GameOver ();
 		if (PlayerPrefs.GetFloat ("highscore", 0) < this.count) {
@@ -52,8 +49,7 @@ public class PlayerController : MonoBehaviour
 		
 		}
 	}
-
-
+		
 	void SetCountText ()
 	{
 		countText.text = "Count: " + count.ToString ();
@@ -62,17 +58,18 @@ public class PlayerController : MonoBehaviour
 			Winner ();
 		}
 	}
-	public void Winner()
+
+	public void Winner ()
 	{
 		GameManager.instance.LevelComplete ();
 	}
 
-	void onTriggerEnter (Collider other)
+	void onTrigger (Collider other)
 	{
-		if (other.tag == "Enemy") {
+		if (other.gameObject.CompareTag ("Enemy")) {
 			Debug.Log ("dead");
-			PlayerController.instance.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePosition;
-		//	Kill ();
+			other.gameObject.SetActive (false);
+			Kill ();
 		}
 	}
 }
