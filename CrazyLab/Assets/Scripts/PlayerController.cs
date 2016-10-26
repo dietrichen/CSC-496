@@ -4,6 +4,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+	public static PlayerController instance;
 
 	public float speed;
 	public Text countText;
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
 	void Start ()
 	{
+		
+		instance = this;
 		rb = GetComponent<Rigidbody> ();
 		count = 0;
 		SetCountText ();
@@ -22,12 +25,14 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		if (GameManager.instance.currentGameState == GameState.inGame) {
+			float moveHorizontal = Input.GetAxis ("Horizontal");
+			float moveVertical = Input.GetAxis ("Vertical");
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+			Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
-		rb.AddForce (movement * speed);
+			rb.AddForce (movement * speed);
+		}
 	}
 
 	void OnTriggerEnter (Collider other)
@@ -38,6 +43,16 @@ public class PlayerController : MonoBehaviour
 			SetCountText ();
 		}
 	}
+
+	public void Kill()
+	{
+		GameManager.instance.GameOver ();
+		if (PlayerPrefs.GetFloat ("highscore", 0) < this.count) {
+			PlayerPrefs.SetFloat ("highscore", this.count);
+		
+		}
+	}
+
 
 	void SetCountText ()
 	{

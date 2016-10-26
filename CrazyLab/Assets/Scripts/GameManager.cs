@@ -45,13 +45,10 @@ public class GameManager : MonoBehaviour
 		SetGameState (GameState.menu);
 	}
 
-	//keeps the game moving and generating new levels
+
 	public void LevelComplete ()
 	{
 		SetGameState (GameState.levelComplete);
-		//LevelGenerator.instance.RemoveLevel();
-		//LevelGenerator.instance.Start();
-
 	}
 
 	void SetGameState (GameState newGameState)
