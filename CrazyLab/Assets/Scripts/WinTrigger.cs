@@ -3,13 +3,14 @@ using System.Collections;
 
 public class WinTrigger : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	// this class I modified from the leavetrigger script, this is attached to the last level piece in a level to call Winner() 
+
+		void OnTriggerEnter2D (Collider2D other)
+		{
+			if (other.tag == "Player") {
+				Debug.Log ("FinishLine");
+				PlayerController.instance.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+				PlayerController.instance.Winner ();
+			}
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-}
