@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5CFC2F43-60AA-AC25-9018-10A4F5E2606E}</ProjectGuid>
+    <ProjectGuid>{DF025045-01E2-3201-E431-922FF6204CB5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
+     <Compile Include="Assets\Scripts\WinTrigger.cs" />
      <None Include="Assets\Material\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\Prefab\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
