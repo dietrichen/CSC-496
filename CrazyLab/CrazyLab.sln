@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{1592B69B-AEBD-673A-DC51-1E6E26214E2E}") = "CrazyLab", "Assembly-CSharp.csproj", "{DF025045-01E2-3201-E431-922FF6204CB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF025045-01E2-3201-E431-922FF6204CB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF025045-01E2-3201-E431-922FF6204CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF025045-01E2-3201-E431-922FF6204CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF025045-01E2-3201-E431-922FF6204CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
