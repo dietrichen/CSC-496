@@ -26,12 +26,16 @@ public class GameManager : MonoBehaviour
 
 	void Start ()
 	{
-		currentGameState = GameState.inGame;// need to configure so this is menu
+		
+		Time.timeScale = 0;
+		currentGameState = GameState.menu;// need to configure so this is menu
+
 	}
 
 	public void StartGame ()
 	{
-		//PlayerController.instance.StartGame (); 
+		
+		PlayerController.instance.StartGame (); 
 		SetGameState (GameState.inGame);
 	}
 
@@ -87,16 +91,12 @@ public class GameManager : MonoBehaviour
 		currentGameState = newGameState;
 	}
 
-/*	void Update ()
+	/*	void Update ()
 	{
 		if (Input.GetButtonDown ("s")) {
 			StartGame ();
 		}
-	}
-*/
-	public void CollectedCoin ()
-	{
-		collectedCoins++;
-	}
+	}*/
+
 
 }

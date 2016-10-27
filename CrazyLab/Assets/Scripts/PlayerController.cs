@@ -46,10 +46,10 @@ public class PlayerController : MonoBehaviour
 		GameManager.instance.GameOver ();
 		if (PlayerPrefs.GetFloat ("highscore", 0) < this.count) {
 			PlayerPrefs.SetFloat ("highscore", this.count);
-		
+
 		}
 	}
-		
+
 	void SetCountText ()
 	{
 		countText.text = "Count: " + count.ToString ();
@@ -72,4 +72,10 @@ public class PlayerController : MonoBehaviour
 			Kill ();
 		}
 	}
+
+	public void StartGame()
+	{
+		Time.timeScale = 1;
+	}
+
 }
